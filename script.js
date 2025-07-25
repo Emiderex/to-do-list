@@ -4,32 +4,32 @@ function addTask() {
   const completedCounter = document.getElementById('completedCounter');
 
   if (taskInput.value.trim() !== '') {
-      const newTask = document.createElement('li');
-      const taskText = document.createElement('span');
-      taskText.textContent = taskInput.value;
+    const newTask = document.createElement('li');
+    const taskText = document.createElement('span');
+    taskText.textContent = taskInput.value;
 
-      const deleteButton = document.createElement('button');
-      deleteButton.textContent = 'Delete';
-      deleteButton.className = 'delete-button';
+    const deleteButton = document.createElement('button');
+    deleteButton.textContent = 'Delete';
+    deleteButton.className = 'delete-button';
 
-      newTask.appendChild(taskText);
-      newTask.appendChild(deleteButton);
-      taskList.appendChild(newTask);
+    newTask.appendChild(taskText);
+    newTask.appendChild(deleteButton);
+    taskList.appendChild(newTask);
 
-      taskInput.value = '';
+    taskInput.value = '';
 
-      newTask.addEventListener('click', function (event) {
-          if (!event.target.classList.contains('delete-button')) {
-              newTask.classList.toggle('completed');
-              updateCompletedCounter();
-          }
-      });
+    newTask.addEventListener('click', function (event) {
+      if (!event.target.classList.contains('delete-button')) {
+        newTask.classList.toggle('completed');
+        updateCompletedCounter();
+      }
+    });
 
-      deleteButton.addEventListener('click', function (event) {
-          event.stopPropagation();
-          taskList.removeChild(newTask);
-          updateCompletedCounter();
-      });
+    deleteButton.addEventListener('click', function (event) {
+      event.stopPropagation();
+      taskList.removeChild(newTask);
+      updateCompletedCounter();
+    });
   }
 }
 
