@@ -3,6 +3,7 @@ function addTask() {
   const taskList = document.getElementById('taskList');
   const completedCounter = document.getElementById('completedCounter');
 
+
   if (taskInput.value.trim() !== '') {
     const newTask = document.createElement('li');
     const taskText = document.createElement('span');
@@ -32,6 +33,14 @@ function addTask() {
     });
   }
 }
+
+  // Allow adding tasks by pressing "Enter"
+  document.getElementById('taskInput').addEventListener('keydown', function (event) {
+    if (event.key === 'Enter') {
+      addTask();
+    }
+  });
+
 
 function updateCompletedCounter() {
   const completedCounter = document.getElementById('completedCounter');
